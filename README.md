@@ -25,12 +25,12 @@
 - [x] Add about me page
 - [ ] Beautify the scroll bar
 - [x] Integrated [Gitalk](https://gitalk.github.io/) comment
-- [ ] Add `fork me on github` in the upper right corner
+- [x] Add `fork me on github` in the upper right corner
 - [x] Add the `RSS` feed
-- [ ] Add post detatil of `TOC`
+- [x] Add post detatil of `TOC`
 - [ ] At the bottom of the site, add statistics such as traffic
-- [ ] design Index Page and support to add top posts
-- [ ] Add **rewards** function after the posts ends
+- [x] design Index Page and support to add top posts
+- [x] Add **rewards** function after the posts ends
 - [ ] Add a cute **pet** or **growth tree** for blogs, etc.
 
 > Welcome to contribute!
@@ -224,6 +224,7 @@ title: typora-vue-theme Theme introduction
 date: 2018-09-07 09:25:00
 author: Qi Zhao
 img: /source/images/xxx.jpg # or:http://xxx.com/xxx.jpg
+top: true # If top value is true, it will be the homepage recommendation post
 categories: Markdown
 tags:
   - Typora
@@ -255,7 +256,11 @@ You can modify some custom modification in `_config.yml` as follows:
 - Inspirational quotes on Home
 - `favicon` and `Logo`
 - profiles
-- gitment and disqus
+- TOC
+- My Projects
+- My Skills
+- My Gallery
+- Gitalk, Gitment and Disqus
 - The map of default featured pictures. The theme will take remainde according to `hashcode` of post title if the post dose not set featured piactures.
 
 **I think everyone should have their own style and feature of blog**。if you are not satisfiled with functions and theme color,you can modify by yourself,and more free functions and deatil need to be modified by modify source code when it is hard to be finished in `_config.yml`.

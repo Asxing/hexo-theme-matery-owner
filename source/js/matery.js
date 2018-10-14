@@ -15,9 +15,14 @@ $(function () {
     /*菜单切换*/
     $('.button-collapse').sideNav();
 
-    /*设置所有文章div的宽度*/
-    let setArtWidth = function () {
-        let w = $('#navContainer').width();
+    /* 修复文章卡片 div 的宽度. */
+    let fixPostCardWidth = function (srcId, targetId) {
+        let srcDiv = $('#' + srcId);
+        if (srcDiv.length === 0) {
+            return;
+        }
+
+        let w = srcDiv.width();
         if (w >= 450) {
             w = w + 21;
         } else if (w >= 350 && w < 450) {
@@ -27,7 +32,7 @@ $(function () {
         } else {
             w = w + 14;
         }
-        $('#articles').width(w);
+        $('#' + targetId).width(w);
     };
 
     /**
@@ -37,13 +42,19 @@ $(function () {
         $('.content').css('min-height', window.innerHeight - 165);
     };
 
-    setArtWidth();
-    fixFooterPosition();
+    /**
+     * 修复样式.
+     */
+    let fixStyles = function () {
+        fixPostCardWidth('navContainer', 'articles');
+        fixPostCardWidth('artDetail', 'prenext-posts');
+        fixFooterPosition();
+    };
+    fixStyles();
 
     /*调整屏幕宽度时重新设置文章列的宽度，修复小间距问题*/
     $(window).resize(function () {
-        setArtWidth();
-        fixFooterPosition();
+        fixStyles();
     });
 
     /*初始化瀑布流布局*/
@@ -88,15 +99,17 @@ $(function () {
     });
 
     /*监听滚动条位置*/
+    let $nav = $('#headNav');
+    let $backTop = $('.top-scroll');
     $(window).scroll(function () {
-        /*回到顶部按钮根据滚动条的位置的显示和隐藏*/
-        let $nav = $('#headNav');
-        if ($(window).scrollTop() < 100) {
+        /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
+        let scroll = $(window).scrollTop();
+        if (scroll < 100) {
             $nav.addClass('nav-transparent');
-            $('.top-scroll').slideUp(300);
+            $backTop.slideUp(300);
         } else {
             $nav.removeClass('nav-transparent');
-            $('.top-scroll').slideDown(300);
+            $backTop.slideDown(300);
         }
     });
 });
