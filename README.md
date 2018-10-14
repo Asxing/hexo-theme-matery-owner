@@ -294,3 +294,5 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
 There are 24 featured pictures in `/source/medias/featureimages`,you can add or delete,and modify it in `_config.yml` at the sametime.
 
+# hexo-theme-matery-owner
+自己在原先主题上的小修改--原主题（https://github.com/blinkfox/hexo-theme-matery）
